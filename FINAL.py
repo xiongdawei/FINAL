@@ -32,8 +32,42 @@ def compress(matrix):
         ROWC.append(counter)
     return VALUES, COL, ROWC
 print(compress(array))
-    
-   
 
-                
-                
+# Question 10
+class Stack:
+    def __init__(self):
+        self.stack = []
+        
+    def push(self,element):
+        self.stack.append(element)
+    
+    def pop(self):
+        return self.stack.pop()
+    
+    def show(self):
+        print(self.stack)
+        
+    def size(self):
+        return len(self.stack)
+    
+    def search(self,target):
+        size = len(self.stack)
+        depth=0
+        while len(self.stack)!=0:
+            X = self.stack.pop()
+            if X == target:
+                break
+            else:
+                depth+=1
+        if depth==size:
+            return "404 Not Found"
+        else:
+            return depth
+      
+Elements = ["Theta","Lambda","Zeta","Epsilon","Delta","Gamma","Mu","Alpha"]
+#Elements.reverse()
+s = Stack()
+for k in Elements:
+    s.push(k)
+s.show()
+print(s.search("Theta"))
